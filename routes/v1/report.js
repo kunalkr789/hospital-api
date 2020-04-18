@@ -1,14 +1,10 @@
 const express = require('express');
-//create a router
 const router = express.Router();
-
-//include passport
 const passport = require('passport');
 
-//include reports controller to process the correspondinga actions
-const reportsController = require('../../../controllers/api/v1/reportsController');
+//include reports controller 
+const reportsController = require('../../controllers/report_controller');
 
-router.get('/:status', passport.authenticate('jwt', {session:false}), reportsController.allReportsWithStatus);
+router.get('/:status', passport.authenticate('jwt', {session:false}), reportsController.getAllReports);
 
-//export router
 module.exports = router;

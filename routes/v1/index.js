@@ -1,13 +1,13 @@
 const express = require('express');
-
-//create a router
 const router = express.Router();
+const doctorRouter = require('./doctor');
+const patientsRouter = require('./patient');
+const reportsRouter  = require('./report');
 
 //redirect all the routes to corresponding files
-router.use('/doctors', require('./doctor'));
-//router.use('/patients', require('./patients'));
-//router.use('/register_patient', require('./register-patient'));
-//router.use('/reports', require('./reports'));
+router.use('/doctors', doctorRouter);
+router.use('/patients', patientsRouter);
+router.use('/register_patient', patientsRouter);
+router.use('/reports', reportsRouter);
 
-//export router
 module.exports = router;

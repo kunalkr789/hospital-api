@@ -1,12 +1,9 @@
 const express = require('express');
-//create a router
 const router = express.Router();
-
-//include passport for authentication
 const passport = require('passport');
 
-//include patients controller to process the correspondinga actions
-const patientsController = require('../../../controllers/api/v1/patientsController');
+//include patients controller 
+const patientsController = require('../../controllers/patient_controller');
 
 //authenticate using jwt strategy
 router.get('/:id/create_report', passport.authenticate('jwt', {session:false}), patientsController.createReport);
