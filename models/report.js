@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//create report schema
 const reportSchema = new mongoose.Schema({
     doctor_id: {
         ref: 'doctor',

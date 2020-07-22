@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//create patient schema
 const patientSchema = new mongoose.Schema({
   phone: {
     type: Number,
