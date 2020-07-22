@@ -21,6 +21,22 @@ describe("Doctors", () => {
       });
     });
     let username = "kunal";
+    it("It should not register a doctor if username or password is missing", (done) => {
+      let doctor = {
+        username: username,
+      };
+      chai
+        .request(server)
+        .post("/v1/doctors/register")
+        .send(doctor)
+        .end((err, res) => {
+          res.should.have.status(500);
+          res.body.should.be.a("object");
+          res.body.should.have.property("message");
+          res.body.should.have.property("message").eql("Internal Server Error");
+          done();
+        });
+    });
 
     it("It should register a doctor if the username doesn't exist already", (done) => {
       let doctor = {
