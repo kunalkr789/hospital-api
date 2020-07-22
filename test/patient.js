@@ -2,7 +2,7 @@
 process.env.NODE_ENV = "test";
 
 const mongoose = require("mongoose");
-const Patient = require("../models/doctor");
+const Patient = require("../models/patients");
 
 //Require the dev-dependencies
 const chai = require("chai");
